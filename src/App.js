@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './Pages/Home';
+import Signup from './Pages/Signup';
+import Login from './Pages/Login';
+import { UserContextProvider } from './UserContext';
+import CreatePost from './Pages/CreatePost';
+import PostPage from './Pages/PostPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <><UserContextProvider>
+      <Router>
+        <Routes>
+          <Route path="/" Component={Home} exact></Route>
+          <Route path="/login" Component={Login} exact></Route>
+          <Route path="/signup" Component={Signup} exact></Route>
+          <Route path="/create" Component={CreatePost} exact></Route>
+          <Route path="/post/:id" Component={PostPage} exact></Route>
+        </Routes>
+      </Router>
+    </UserContextProvider>
+    </>
   );
 }
 
