@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Post = ({_id,title,summary,cover,content,createdAt,author}) => {
   return (
-    <div className='flex bg-amber-100 h-30 w-4/5 mx-auto my-10 rounded-lg overflow-hidden'>
+    <div className='flex bg-amber-100 h-30 w-4/5 mx-auto my-10 rounded-lg overflow-hidden' style={{backgroundColor:"rgba(245,245,245)"}}>
                 <div className='w-2/5 h-2/5'>
                     <Link to={`/post/${_id}`}>
                     <img src={'http://localhost:8000/'+cover} alt='CoverPhoto'></img>
